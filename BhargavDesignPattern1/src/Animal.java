@@ -1,11 +1,11 @@
 //package DesignPattern;
 
-class CricketTeam{
+class CricketTeamm{
 	private static String captain;
 	private static class CricketTeamHolder{
-		private static CricketTeam instance=new CricketTeam();
+		private static CricketTeamm instance=new CricketTeamm();
 	}
-	public static CricketTeam getInstance() {
+	public static CricketTeamm getInstance() {
 		return CricketTeamHolder.instance;
 	}
 	public void setCaptain(String captainName) {
