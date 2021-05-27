@@ -1,22 +1,35 @@
 //package DesignPattern;
 
-class CricketTeamm{
-	private static String captain;
-	private static class CricketTeamHolder{
-		private static CricketTeamm instance=new CricketTeamm();
+interface Animal{
+	void speak();
+}
+class Tiger implements Animal{
+	private static String name="Tiger";
+	public void speak() {
+		System.out.println(name+" says Halum-Halum");
 	}
-	public static CricketTeamm getInstance() {
-		return CricketTeamHolder.instance;
+}
+class Duck implements Animal{
+	private static String name="Duck";
+	public void speak() {
+		System.out.println(name+" says Pack-pack");
 	}
-	public void setCaptain(String captainName) {
-		if(captain==null) {
-			captain=captainName;
-			System.out.println("New captain selected for our team");
-		}
-		else
-			System.out.println("You already have a captain for our team. Send him to toss");
+}
+public class FactoryMethod {
+	public Animal animalFactory(String animal) {
+		Animal ob=null;
+		if(animal=="Duck")
+			ob=new Duck();
+		else if(animal=="Tiger")
+			ob=new Tiger();
+		return ob;
 	}
-	public String getCaption() {
-		return captain;
+	public static void main(String[] args) {
+		FactoryMethod f=new FactoryMethod();
+		Animal duck=f.animalFactory("Duck");
+		duck.speak();
+		Animal tiger=f.animalFactory("Tiger");
+		tiger.speak();
 	}
+
 }
